@@ -46,6 +46,11 @@
   
   .desktop .text-wrapper {
     color: #333333;
+    transition:transform .5s;
+  }
+
+  .desktop .text-wrapper a:hover::after {
+    transform: scaleX(1);
   }
   
   .desktop .span {
