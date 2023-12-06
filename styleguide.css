@@ -1,0 +1,11 @@
+:root {
+    --soft-blue: rgba(100, 149, 237, 1);
+    --yellow: rgba(221, 199, 9, 1);
+    --lavender: rgba(230, 230, 250, 1);
+    --gray: rgba(211, 211, 211, 1);
+    --bg: rgba(245, 245, 245, 1);
+    --font: rgba(51, 51, 51, 1);
+    --bg-2: rgba(255, 102, 178, 1);
+    --variable-collection-soft-blue: rgba(80, 119, 190, 1);
+    --variable-collection-black: rgba(0, 0, 0, 1);
+  }
