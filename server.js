@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const nodemailer = require('nodemailer');
 
-// Configure Nodemailer
+//Configure Nodemailer
 const transporter = nodemailer.createTransport({
-  // Your email configuration
+//Your email configuration
 });
 
 // Mock data for illustration purposes
