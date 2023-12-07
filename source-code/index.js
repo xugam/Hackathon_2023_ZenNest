@@ -2,6 +2,7 @@ function sendMail() {
     const params = {
       to_name: document.getElementById("name").value,
       to_email: document.getElementById("email").value,
+      
     };
     console.log(params);
     emailjs
