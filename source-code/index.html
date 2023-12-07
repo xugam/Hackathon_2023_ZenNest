@@ -48,7 +48,7 @@
                 Journey</h1>
             </p>
             <span class="square"></span><br>
-            <button class="common-btn">Read More</button>
+            <button class="common-btn" onclick="blog2()">Read More</button>
             <div class="line">
                 <span class="line1"></span><br>
                 <span class="line2"></span><br>
@@ -63,7 +63,7 @@
     <!-- About -->
     <section id="about">
         <div class="about-left-col">
-            <img src="/assets/">
+            <img src="/assets/about-us.png">
         </div>
         <div class="about-right-col">
             <div class="about-text">
@@ -72,7 +72,7 @@
                 <p>FlowPal is introduced to help women and teenage girls to understand and track their menstrual cycle. By providing a visual representation of the cycle, 
                     it offers valuable insights into the regularity, duration patterns of menstruation and also clears the misunderstanding that prevails in our society.
                 </p><br>
-                <button class="common-btn">Read More</button><br>
+                <button class="common-btn" onclick="reDirectToAbout()">Read More</button><br>
                 <div class="line">
                     <span class="line1"></span><br>
                     <span class="line2"></span><br>
@@ -91,7 +91,7 @@
                 <img src="/assets/period-tracker.png">
                 <h4>Period Tracking</h4>
                 <p>Track Your Period By Just Giving Your Last Period Date</p>
-            </div>   
+            </div>
             <div class="services-col">
                 <img src="/assets/notification.png">
                 <h4>Notification</h4>
@@ -104,7 +104,7 @@
             </div>
         </div>
         <div class="services-btn">
-            <button class="common-btn">Begin Tracking</button>
+            <button class="common-btn" onclick="reDirectToTracker()">Begin Tracking</button>
         </div>
     </section>
 
@@ -115,9 +115,9 @@
                 <div class="blogs-text">
                     <h1>Explore Our Top <br>Blogs</h1>
                     <span class="square"></span><br>
-                    <p><button class="common-btn" id="blog1">Menstural Wellness: Insights and Remedies</button><br> 
-                        <button class="common-btn" id="blog2">Empowering Your Menstural Wellness With Mindfulness</button><br> 
-                        <button class="common-btn" id="blog3">Demsystifying Menstural Myths</button></p>
+                    <p><button class="common-btn" id="blog1" onclick="blog1()">Menstural Wellness: Insights and Remedies</button><br> 
+                        <button class="common-btn" id="blog2" onclick="blog2()">Empowering Your Menstural Wellness With Mindfulness</button><br> 
+                        <button class="common-btn" id="blog3" onclick="blog3()">Demsystifying Menstural Myths</button></p>
                     <!-- <button class="common-btn">Explore More</button> -->
                     <div class="line">
                         <span class="line1"></span><br>
@@ -127,7 +127,7 @@
                 </div>
             </div>
             <div class="blogs-right-col">
-                <img src="/assets/">
+                <img src="/assets/thinking.png">
             </div>
         </div>
     </section>
@@ -136,16 +136,13 @@
     <section id="contact">
         <div class="container contact-row">
             <div class="contact-left-col">
-                <h1>Sign Up To Join <br>Our Community</h1>
+                <h1>Please Send Inquiries, <br>If Any</h1>
                 <form>
                     <input type="text" id="name" name="name" placeholder="Enter Name">
                     <input type="email" id="email" name="email" placeholder="Enter Email">
-                    <input type="text" id="username" name="username" placeholder="Enter Username">
-                    <input type="password" id="password" name="password" placeholder="Enter Password">
-                    <!-- <input type="file" name="file" id="files" multiple> -->
+                    <input type="text" id="message" name="Message" placeholder="Enter Enquiries">
                     <div class="btn-box">
-                        <button class="common-btn" id="SignUpBTN" onclick="signup()">Sign Up</button>
-                        <button class="common-btn1">Start Free Trial</button>
+                        <button class="common-btn" id="signupButton">Submit</button>
                     </div>
                 </form>
                 <div class="line">
@@ -239,6 +236,21 @@
       // Clear the form
             document.getElementById('signupForm').reset();
         }
+        function reDirectToAbout(){
+            window.location.href = '/web-pages/about-us.html';
+        }
+        function reDirectToTracker(){
+            window.location.href = '/web-pages/tracker.html';
+        }
+        function blog1(){
+            window.location.href = '/web-pages/blog1.html';
+        }
+        function blog2(){
+            window.location.href = '/web-pages/blog2.html';
+        }
+        function blog3(){
+            window.location.href = '/web-pages/blog3.html';
+        }
     </script>
     <script>
         var scroll = new SmoothScroll('a[href*="#"]',{
@@ -246,5 +258,7 @@
             speedAsDuration: true
         });
     </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="/source-code/app.js" ></script>
 </body>
 </html>
