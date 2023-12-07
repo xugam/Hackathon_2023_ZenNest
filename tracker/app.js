@@ -12,9 +12,9 @@ function calculatePeriod() {
 
   const daysRemaining = Math.ceil(timeRemaining / (24 * 60 * 60 * 1000));
 
-  if (daysRemaining < 0) {
+  if (daysRemaining == 0) {
     const final = document.getElementById("Your_Result");
-    final.innerHTML = `Invalid `;
+    final.innerHTML = `Invalid`;
     return;
   } else {
     const final = document.getElementById("Your_Result");
