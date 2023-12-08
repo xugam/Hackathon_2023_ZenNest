@@ -22,6 +22,25 @@ function calculatePeriod() {
     const final = document.getElementById("Your_Result");
     final.innerHTML = `Your next period is expected around ${nextPeriodDate.toDateString()}.<br>Time remaining: ${daysRemaining} days.
   <br><br> Please note that the accuracy of your data may be affected, as our period tracker is designed to accommodate cycles with intervals of either 23 or 28 days.`;
+
+    // Save lastPeriodDate to localStorage
+    localStorage.setItem("lastPeriodDate", lastPeriodDate.toISOString());
+  }
+}
+
+function checkPreviousPeriod() {
+  // Retrieve lastPeriodDate from localStorage
+  const storedLastPeriodDate = localStorage.getItem("lastPeriodDate");
+  const lastPeriodDate = storedLastPeriodDate
+    ? new Date(storedLastPeriodDate)
+    : null;
+
+  if (lastPeriodDate) {
+    const final = document.getElementById("Your_Result");
+    final.innerHTML = `Your previous period was on ${lastPeriodDate.toDateString()}.`;
+  } else {
+    const final = document.getElementById("Your_Result");
+    final.innerHTML = `No previous period data available.`;
   }
 }
 
@@ -29,7 +48,7 @@ function sendMail() {
   const params = {
     to_name: document.getElementById("name").value,
     to_email: document.getElementById("email").value,
-    t_days: daysRemaining,
+    t_days: lastPeriodDate.toDateString(),
   };
   console.log(params);
   emailjs
