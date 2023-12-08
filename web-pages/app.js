@@ -20,9 +20,20 @@ function calculatePeriod() {
     final.innerHTML = `Invalid Info.`;
   } else {
     const final = document.getElementById("Your_Result");
-    final.innerHTML = `Your next period is expected around ${nextPeriodDate.toDateString()}.<br>Time remaining: ${daysRemaining} days.
-  <br><br> Please note that the accuracy of your data may be affected, as our period tracker is designed to accommodate cycles with intervals of either 23 or 28 days.`;
+     
+    // Ovulation day estimation (around 14 days before the next period)
+     const ovulationDate = new Date(nextPeriodDate.getTime() - 14 * 24 * 60 * 60 * 1000);
 
+     // Discharge day estimation (around 5-7 days before ovulation)
+     const dischargeDate = new Date(ovulationDate.getTime() - (Math.floor(Math.random() * 3) + 5) * 24 * 60 * 60 * 1000);
+ 
+     const menstrualPhase = determineMenstrualPhase(daysRemaining);
+
+     final.innerHTML = `Your next period is expected around ${nextPeriodDate.toDateString()}.
+       <br>Time remaining: ${daysRemaining} days.
+       <br>Ovulation day is estimated around ${ovulationDate.toDateString()}.
+       <br>Discharge day is estimated around ${dischargeDate.toDateString()}.
+       <br><br>Please note that these are rough estimates and may vary.`;
     // Save lastPeriodDate to localStorage
     localStorage.setItem("lastPeriodDate", lastPeriodDate.toISOString());
   }
@@ -43,6 +54,21 @@ function checkPreviousPeriod() {
     final.innerHTML = `No previous period data available.`;
   }
 }
+
+function determineMenstrualPhase(daysRemaining) {
+  if (daysRemaining <= 7) {
+    return "Early Follicular Phase";
+  } else if (daysRemaining <= 14) {
+    return "Late Follicular Phase";
+  } else if (daysRemaining === 14) {
+    return "Ovulation Phase";
+  } else if (daysRemaining <= 21) {
+    return "Early Luteal Phase";
+  } else {
+    return "Late Luteal Phase";
+  }
+}
+
 
 function sendMail() {
   const params = {
