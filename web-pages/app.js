@@ -20,20 +20,25 @@ function calculatePeriod() {
     final.innerHTML = `Invalid Info.`;
   } else {
     const final = document.getElementById("Your_Result");
-     
+
     // Ovulation day estimation (around 14 days before the next period)
-     const ovulationDate = new Date(nextPeriodDate.getTime() - 14 * 24 * 60 * 60 * 1000);
+    const ovulationDate = new Date(
+      nextPeriodDate.getTime() - 14 * 24 * 60 * 60 * 1000
+    );
 
-     // Discharge day estimation (around 5-7 days before ovulation)
-     const dischargeDate = new Date(ovulationDate.getTime() - (Math.floor(Math.random() * 3) + 5) * 24 * 60 * 60 * 1000);
- 
-     const menstrualPhase = determineMenstrualPhase(daysRemaining);
+    // Discharge day estimation (around 5-7 days before ovulation)
+    const dischargeDate = new Date(
+      ovulationDate.getTime() -
+        (Math.floor(Math.random() * 3) + 5) * 24 * 60 * 60 * 1000
+    );
 
-     final.innerHTML = `Your next period is expected around ${nextPeriodDate.toDateString()}.
-       <br>Time remaining: ${daysRemaining} days.
+    const menstrualPhase = determineMenstrualPhase(daysRemaining);
+
+    final.innerHTML = `Your next period is expected around ${nextPeriodDate.toDateString()}.
+       <br>Time remaining: ${daysRemaining} days "Please carry your neccisities (suitable menstrual products,Portable hotbags and Pain relief medications)".
        <br>Ovulation day is estimated around ${ovulationDate.toDateString()}.
        <br>Discharge day is estimated around ${dischargeDate.toDateString()}.
-       <br><br>Please note that these are rough estimates and may vary.`;
+       <br><br>Please note that this may vary according to your ovulation cycle.`;
     // Save lastPeriodDate to localStorage
     localStorage.setItem("lastPeriodDate", lastPeriodDate.toISOString());
   }
@@ -68,7 +73,6 @@ function determineMenstrualPhase(daysRemaining) {
     return "Late Luteal Phase";
   }
 }
-
 
 function sendMail() {
   const params = {
